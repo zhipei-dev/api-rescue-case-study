@@ -2,6 +2,10 @@
 
 A synthetic rescue of a TypeScript order webhook that looked fine on a happy path but was unsafe under duplicate delivery, failures, and malformed input. It represents no customer, production deployment, revenue, SLA, or benchmark.
 
+## Client fit
+
+Relevant proof for AI-generated / vibe-coded application rescue, webhook/API reliability work, duplicate-side-effect bugs, retry/timeout failures, concurrency defects, missing validation, transaction-boundary problems, and test/CI stabilization.
+
 ## What broke and why it mattered
 
 The isolated **synthetic intentionally flawed baseline** accepted arbitrary payloads, had a check-then-write race, repeated ordinary 4xx failures, had no per-attempt timeout, and exposed raw errors. A replayed webhook could therefore create a second order-side record; retries and error responses made failures noisier and less safe.
