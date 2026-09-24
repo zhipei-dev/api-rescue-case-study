@@ -1,0 +1,12 @@
+name: Delivery readiness report
+on: [push, pull_request]
+jobs:
+  report:
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: zhipei-dev/delivery-readiness-guard@v1
+        with:
+          mode: report

@@ -1,0 +1,17 @@
+{
+  "name": "api-rescue-case-study",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Synthetic webhook API rescue case study; the baseline is intentionally flawed and never deployable.",
+  "type": "module",
+  "engines": { "node": ">=24 <25" },
+  "scripts": {
+    "dev": "tsx src/server.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "tsc -p tsconfig.build.json",
+    "audit": "npm audit"
+  },
+  "dependencies": { "express": "^5.1.0", "zod": "^3.24.4" },
+  "devDependencies": { "@types/express": "^5.0.3", "@types/node": "^24.0.0", "tsx": "^4.20.3", "typescript": "^5.8.3", "vitest": "^5.0.1" }
+}
