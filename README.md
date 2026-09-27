@@ -16,21 +16,38 @@ The rescue moves validation to the HTTP boundary, durably claims one order opera
 
 See [the root-cause analysis](docs/ROOT_CAUSE_ANALYSIS.md), [before/after evidence](docs/BEFORE_AFTER.md), and [architecture](docs/ARCHITECTURE.md).
 
-## Reproduce and validate
+## Setup
 
 Requires Node 24.
 
 ```sh
 npm ci --no-fund
+```
+
+On Windows where `npm.ps1` is blocked, `npm.cmd` is equivalent. No private cache path is required.
+
+## Run
+
+Start the local synthetic API with:
+
+```sh
+npm run dev
+```
+
+The fixed route is `POST /webhooks/orders` with `eventId`, `orderId`, and positive integer `amountCents`; `GET /health` returns service status.
+
+## Test and validation
+
+Run the deterministic verification set with:
+
+```sh
 npm run typecheck
 npm test
 npm run build
 npm audit
 ```
 
-On Windows where `npm.ps1` is blocked, `npm.cmd` is equivalent. No private cache path is required.
-
-The tests named `SYNTHETIC INTENTIONALLY FLAWED BASELINE` pass by asserting known-bad behavior. They are evidence, not approval of the baseline. The fixed route is `POST /webhooks/orders` with `eventId`, `orderId`, and positive integer `amountCents`; `GET /health` returns service status.
+The tests named `SYNTHETIC INTENTIONALLY FLAWED BASELINE` pass by asserting known-bad behavior. They are evidence, not approval of the baseline.
 
 ## Limitations
 
