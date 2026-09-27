@@ -6,7 +6,7 @@ jobs:
       contents: read
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: zhipei-dev/delivery-readiness-guard@v1
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: zhipei-dev/delivery-readiness-guard@462b37c452955523ab045221f0bb7ac284cf5d83 # v1
         with:
           mode: report
